@@ -1,0 +1,16 @@
+funcionalidades
+	- bot (lex) (Luisito)
+	- traduccion (translate) (Luisito)
+	- subir fotos y extraccion de texto (rekognition) (Luisito)
+	- lectura de texto en voz alta (polly) (Deudora alimenticia)
+	- lambda - api gateway (Deudora alimenticia)
+	- docker (node.js) (Leona 1)
+	- ec2 (Leona 1)
+	- balanceador (node - api gateway) (Leona 1)
+	- rds (Leona 1)
+	- s3 (Deudora alimenticia)
+	- Servicio extra -- pendiente 
+	- Frontend (Deudora alimenticia)
+	- Backend (Leona 1 - Login, etc)
+	
+	
