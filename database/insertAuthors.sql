@@ -1,0 +1,23 @@
+INSERT INTO author (author_name, author_description)
+VALUES
+  ('Gabriel García Márquez', 'Novelista, cuentista, guionista y periodista colombiano. Premio Nobel de Literatura en 1982'),
+  ('Antoine de Saint-Exupéry', 'Aviador y escritor francés. Autor del famoso cuento El Principito'),
+  ('J.R.R. Tolkien', 'Filólogo, escritor y profesor universitario británico. Autor de la trilogía El Señor de los Anillos'),
+  ('George Orwell', 'Escritor y ensayista británico. Autor de la novela distópica 1984'),
+  ('George Orwell', 'Escritor y ensayista británico. Autor de la fábula política Animal Farm'),
+  ('Paulo Coelho', 'Novelista, dramaturgo y letrista brasileño. Autor de la novela El Alquimista'),
+  ('J.R.R. Tolkien', 'Filólogo, escritor y profesor universitario británico. Autor del compendio de historias El Silmarillion'),
+  ('Oscar Wilde', 'Escritor, poeta y dramaturgo irlandés. Autor de la novela gótica El Cuadro de Dorian Gray'),
+  ('Herman Melville', 'Escritor, novelista y poeta estadounidense. Autor de la novela épica Moby Dick'),
+  ('Vladimir Nabokov', 'Escritor, crítico literario, traductor y entomólogo ruso-estadounidense. Autor de la novela controvertida Lolita'),
+  ('Miguel de Cervantes Saavedra', 'Escritor español. Autor de la novela picaresca El Quijote'),
+  ('William Shakespeare', 'Dramaturgo, poeta y actor inglés. Autor de la tragedia Hamlet'),
+  ('William Shakespeare', 'Dramaturgo, poeta y actor inglés. Autor de la tragedia Romeo y Julieta'),
+  ('William Shakespeare', 'Dramaturgo, poeta y actor inglés. Autor de la tragedia Macbeth'),
+  ('William Shakespeare', 'Dramaturgo, poeta y actor inglés. Autor de la tragedia Otelo'),
+  ('F. Scott Fitzgerald', 'Escritor estadounidense. Autor de la novela sobre la era del jazz El Gran Gatsby'),
+  ('Marcel Proust', 'Novelista, ensayista y crítico francés. Autor de la novela en siete partes En busca del tiempo perdido'),
+  ('James Joyce', 'Escritor, novelista y poeta irlandés. Autor de la novela experimental Ulises'),
+  ('William Faulkner', 'Novelista y cuentista estadounidense. Autor de la novela experimental El ruido y la furia'),
+  ('Fiódor Dostoyevski', 'Escritor y filósofo ruso. Autor de la novela psicológica Crimen y castigo'),
+  ('León Tolstói', 'Novelista y filósofo ruso. Autor de la novela épica Guerra y paz');
