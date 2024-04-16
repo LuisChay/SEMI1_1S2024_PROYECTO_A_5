@@ -1,4 +1,5 @@
 const authorRoutes = require('./routes/authorRoutes')
+const ratingRoutes = require('./routes/ratingRoutes')
 const genreRoutes = require('./routes/genreRoutes')
 const userRoutes = require('./routes/userRoutes')
 const bookRoutes = require('./routes/bookRoutes')
@@ -30,6 +31,7 @@ app.use(logger("dev"))
 app.use('/', userRoutes)
 app.use('/', bookRoutes)
 app.use('/', genreRoutes)
+app.use('/', ratingRoutes)
 app.use('/', authorRoutes)
 
 // ----------- SERVIDOR CORRIENDO -------------- 
