@@ -1,0 +1,23 @@
+INSERT INTO book (book_name, book_description)
+VALUES
+  ('Cien años de soledad', 'Una obra maestra del realismo mágico que narra la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo'),
+  ('El Principito', 'Un cuento poético y filosófico sobre un piloto que se estrella en el desierto y se encuentra con un pequeño príncipe de otro planeta'),
+  ('El Señor de los Anillos', 'Una épica trilogía de fantasía que narra la lucha del hobbit Frodo Bolsón por destruir el Anillo Único y salvar la Tierra Media'),
+  ('1984', 'Una novela distópica que describe un futuro en el que una sociedad totalitaria controla todos los aspectos de la vida de las personas'),
+  ('Animal Farm', 'Una fábula política que satiriza la Revolución Rusa y el surgimiento del totalitarismo'),
+  ('El Alquimista', 'Una novela espiritual sobre un pastor español que viaja a Egipto en busca de un tesoro escondido'),
+  ('El Silmarillion', 'Un compendio de historias y leyendas que forman la base del universo de la Tierra Media creado por J.R.R. Tolkien'),
+  ('El Cuadro de Dorian Gray', 'Una novela gótica sobre un joven que vende su alma a cambio de la eterna juventud y belleza'),
+  ('Moby Dick', 'Una novela épica sobre la obsesión del capitán Ahab por cazar a la ballena blanca Moby Dick'),
+  ('Lolita', 'Una novela controvertida sobre un hombre de mediana edad que se enamora de una niña de 12 años'),
+  ('El Quijote', 'Una novela picaresca considerada una de las obras literarias más importantes de la historia'),
+  ('Hamlet', 'Una tragedia de William Shakespeare sobre un príncipe danés que busca vengar la muerte de su padre'),
+  ('Romeo y Julieta', 'Una tragedia de William Shakespeare sobre dos jóvenes amantes de familias enemigas'),
+  ('Macbeth', 'Una tragedia de William Shakespeare sobre un general escocés que asesina al rey para tomar el poder'),
+  ('Otelo', 'Una tragedia de William Shakespeare sobre un general moro que es víctima de los celos y la traición'),
+  ('El Gran Gatsby', 'Una novela sobre la era del jazz estadounidense y el sueño americano'),
+  ('En busca del tiempo perdido', 'Una novela en siete partes que narra la vida y las experiencias del protagonista, Marcel Proust'),
+  ('Ulises', 'Una novela experimental que cuenta la historia de Leopold Bloom durante un día en Dublín'),
+  ('El ruido y la furia', 'Una novela experimental que narra la historia de la familia Compson desde diferentes perspectivas'),
+  ('Crimen y castigo', 'Una novela psicológica sobre un estudiante pobre que comete un asesinato y lucha con la culpa'),
+  ('Guerra y paz', 'Una novela épica que narra la historia de la invasión napoleónica de Rusia y su impacto en cinco familias aristocráticas');
