@@ -26,6 +26,7 @@ function Login() {
         service.login(formData.email, CryptoJS.MD5(formData.contraseña).toString())
         .then(({success}) => {
           if(success){
+            sessionStorage.setItem("user",formData.email)
             setFormData({
                 email: '',
                 contraseña: ''

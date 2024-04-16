@@ -16,7 +16,7 @@ function Index() {
       <img src={logo} alt="Nicereads" width={300}/>
     </a>
     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-        <button type="button" class="btn btn-outline-success" >Iniciar sesión</button>
+        <button type="button" class="btn btn-outline-success"onClick={()=>navigate("/login")} >Iniciar sesión</button>
         <button type="button" class="btn btn-warning" onClick={()=>navigate("/registro")}>Registrarse</button>
     </div>
     </div>
