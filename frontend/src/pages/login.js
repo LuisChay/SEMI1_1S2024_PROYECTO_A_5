@@ -4,11 +4,11 @@ import { useState } from "react";
 import service from "../services/service";
 import Swal from 'sweetalert2'
 import CryptoJS from 'crypto-js';
-function Registro() {
+function Login() {
     const navigate = useNavigate()
+    const secretKey = 'ClavesitaSemi';
     const [formData, setFormData] = useState({
         email: '',
-        nombre: '',
         contraseña: ''
     });
 
@@ -23,40 +23,34 @@ function Registro() {
       const handleSubmit = (e) => {
         e.preventDefault();
         // Enviando los datos al backend
-        service.registry(formData.email,formData.nombre, CryptoJS.MD5(formData.contraseña).toString())
+        service.login(formData.email, CryptoJS.MD5(formData.contraseña).toString())
         .then(({success}) => {
           if(success){
-            Swal.fire({
-                title: "Registro exitoso",
-                text: "¡Se ha registrado correctamente!",
-                icon: "success"
+            setFormData({
+                email: '',
+                contraseña: ''
               });
-
-              navigate("/login")
+              navigate("/home")
           }else{
             Swal.fire({
-                title: "Registro fallido",
-                text: "No fue posible realizar el registro :c",
+                title: "Inicio de sesión fallido",
+                text: "Email o contraseña incorrectos",
                 icon: "error"
               });
           }
         
       });
-        // Limpiar el formulario después de enviar
-        setFormData({
-          email: '',
-          nombre: '',
-          contraseña: ''
-        });
+
+        
       };
   return (
     <>
     <div class="container d-flex justify-content-center align-items-center vh-100">
     <div className="text-left">
-    <a href="" onClick={()=>navigate("/")}>
+        <a href="" onClick={()=>navigate("/")}>
         <img src={logo}></img>
         </a>
-        <h3>Crear cuenta</h3>
+        <h3>Iniciar sesión</h3>
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label>Email</label>
@@ -66,19 +60,6 @@ function Registro() {
           placeholder="yourmail@mail.com"
           name="email"
           value={formData.email}
-          onChange={handleChange}
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label>Nombre</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Reader Rabbit"
-          name="nombre"
-          value={formData.nombre}
           onChange={handleChange}
           required
         />
@@ -98,11 +79,11 @@ function Registro() {
       </div>
         <br></br>
       <button type="submit" className="btn btn-warning">
-        Registrarse
+        Iniciar sesión
       </button>
     </form>
     <div class="text-center">
-    <a href="" class="btn" role="button" data-bs-toggle="button" style={{color:"GrayText"}} onClick={()=>navigate("/login")}>¿Ya tienes una cuenta? Inicia sesión aquí</a>
+    <a href="" class="btn" role="button" data-bs-toggle="button" style={{color:"GrayText"}} onClick={()=>navigate("/registro")}>¿No tienes una cuenta? ¡Registrate aquí!</a>
     </div>
     </div>
     
@@ -112,4 +93,4 @@ function Registro() {
   );
 }
 
-export default Registro;
+export default Login;

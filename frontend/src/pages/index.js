@@ -24,7 +24,7 @@ function Index() {
 
     <div className="container">
       <h2>Integrantes</h2>
-      <table className="table">
+      <table className="table text-center">
         <thead>
           <tr>
             <th>Carnet</th>
