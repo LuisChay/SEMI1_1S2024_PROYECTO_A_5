@@ -34,3 +34,15 @@ export const getBooks = async() =>{
     const { data } = await instance.get("/books")
     return {books:data}
 }
+
+//Obtener lista de generos
+export const getGenres = async() =>{
+    const { data } = await instance.get("/genres")
+    return {genres:data}
+}
+
+//Obtener lista de libros filtrados por género
+export const getBooksByGenre = async(genre) =>{
+    const { data } = await instance.get("/book/by/genre/"+genre)
+    return {books:data}
+}

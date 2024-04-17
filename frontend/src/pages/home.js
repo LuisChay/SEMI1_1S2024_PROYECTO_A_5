@@ -9,10 +9,30 @@ function Home() {
     const [userLogged, setUserLogged] = useState("")
     const [nameLogged, setNameLogged] = useState("")
     const [books, setBooks] = useState([])
+    const [genres, setGenres] = useState([])
+    const [selectedGenre, SetSelectedGenre]= useState("")
     const handleLogout = (e) => {
         sessionStorage.setItem("user","")
         navigate("/index")
     }
+
+    const handleSelectChange = (e) => {
+      SetSelectedGenre(e.target.value);
+    };
+
+    const genreFilter = (e) => {
+      if(selectedGenre==""){
+        service.getBooks()
+        .then(({books}) => {
+            setBooks(books)
+        });
+      }else{
+      service.getBooksByGenre(selectedGenre)
+        .then(({books}) => {
+            setBooks(books)
+        });
+      }
+    };
     useEffect(() => {
         //Obteniendo los datos del usuario loggeado
         setUserLogged(sessionStorage.getItem("user"))
@@ -25,6 +45,12 @@ function Home() {
        service.getBooks()
         .then(({books}) => {
             setBooks(books)
+        });
+
+        //Obteniendo el listado de géneros disponibles
+        service.getGenres()
+        .then(({genres}) => {
+            setGenres(genres)
         });
       }, []); // El segundo argumento es un array vacío para indicar que esta acción solo se ejecuta una vez
   return (
@@ -46,7 +72,15 @@ function Home() {
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" >{userLogged}</a></li>
-            <li><a class="dropdown-item" href="" onClick={handleLogout}>Cerrar sesión</a></li>
+            <li>
+            
+              <a class="dropdown-item" href="" onClick={handleLogout}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+            <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+          </svg>
+          &nbsp;Cerrar sesión</a>
+              </li>
           </ul>
     </li>      
     </ul>
@@ -55,20 +89,42 @@ function Home() {
     <br></br>
     <div className="container">
     <div className="row">
-      {books.map(book => (
-        <div key={book.book_id} className="col-md-3 mb-4">
-           <div className="card h-100 d-flex flex-column justify-content-between">
-         
-            <img src={book.book_cover} className="card-img-top" alt={book.book_name} />
-            <div className="card-body">
-              <h5 className="card-title">{book.book_name}</h5>
-              <p className="card-text">{book.book_description}</p>
-              <p className="card-text"><small className="text-muted">Autor: {book.author_name}</small></p>
-            </div>
-          </div>
-        
-        </div>
+  <div className="col-md-3">
+    <h6 className="mr-3">Filtrar por género:</h6>
+  </div>
+  <div className="col-md-3">
+    <select onChange={handleSelectChange} className="form-control">
+      <option value="">Selecciona un género</option>
+      {genres.map((option, index) => (
+        <option key={index} value={option.genre_id}>{option.genre_name}</option>
       ))}
+    </select>
+  </div>
+  <div className="col-md-3">
+    <button class="btn btn-warning" onClick={genreFilter}>Filtrar</button>
+    </div>
+</div>
+      <br></br>
+    <div className="row">
+    
+    {books.length > 0 ? (
+    books.map(book => (
+      <div key={book.book_id} className="col-md-3 mb-4">
+        <div className="card h-100 d-flex flex-column justify-content-between">
+          <img src={book.book_cover} className="card-img-top" alt={book.book_name} />
+          <div className="card-body">
+            <h5 className="card-title">{book.book_name}</h5>
+            <p className="card-text">{book.book_description}</p>
+            <p className="card-text"><small className="text-muted">{book.author_name}</small></p>
+          </div>
+        </div>
+      </div>
+    ))
+  ) : (
+    <div className="col-12">
+      <p>No hay libros disponibles.</p>
+    </div>
+  )}
     </div>
     </div>
 
