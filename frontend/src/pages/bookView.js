@@ -84,7 +84,7 @@ function BookView() {
               Swal.fire({
                 title: "¡Reseña enviada!",
                 text: "Tu reseña se ha registrado con éxito",
-                icon: "sucess"
+                icon: "success"
               });
             }else{
               Swal.fire({
