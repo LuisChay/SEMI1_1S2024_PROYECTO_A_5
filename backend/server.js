@@ -3,6 +3,7 @@ const ratingRoutes = require('./routes/ratingRoutes')
 const genreRoutes = require('./routes/genreRoutes')
 const userRoutes = require('./routes/userRoutes')
 const bookRoutes = require('./routes/bookRoutes')
+const textDetection = require('./routes/textDetection')
 const connect = require('express-myconnection')
 const express = require('express')
 const mysql = require('mysql2')
@@ -33,6 +34,7 @@ app.use('/', bookRoutes)
 app.use('/', genreRoutes)
 app.use('/', ratingRoutes)
 app.use('/', authorRoutes)
+app.use('/', textDetection)
 
 // ----------- SERVIDOR CORRIENDO -------------- 
 app.listen(app.get('port'), ()=>{

@@ -4,7 +4,7 @@ const routes = express.Router()
 const AWS = require('aws-sdk')
 const fs = require('fs')
 const { text } = require('body-parser')
-
+const textDetection = express.Router()
 require('dotenv').config();
 
 AWS.config.update({
@@ -49,8 +49,7 @@ async function extractText(base64Image) {
   }
 
   
-  routes.post('/funcion/texto', (req, res) => {
-    //console.log(req.body)
+  textDetection.post('/funcion/texto', (req, res) => {
     extractText(req.body.foto)
   .then(text => {
     return res.status(200).json({texto:text})
@@ -62,3 +61,5 @@ async function extractText(base64Image) {
   });
     
 })
+
+module.exports = textDetection
