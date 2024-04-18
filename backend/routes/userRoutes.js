@@ -65,7 +65,7 @@ userRoutes.post('/login', (req, res) => {
 })
 
 // -------------------------------------------- Mostrar información -----------------------------------------------
-userRoutes.get('/userInfo', (req, res) => {
+userRoutes.post('/userInfo', (req, res) => {
     req.getConnection((err, connect) => {
         if (err) {
             return res.status(404).json({

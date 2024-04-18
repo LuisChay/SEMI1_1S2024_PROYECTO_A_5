@@ -4,7 +4,7 @@ const textdetectionroutes = express.Router()
 const AWS = require('aws-sdk')
 const fs = require('fs')
 const { text } = require('body-parser')
-
+const textDetection = express.Router()
 require('dotenv').config();
 
 AWS.config.update({

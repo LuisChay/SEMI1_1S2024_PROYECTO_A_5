@@ -51,7 +51,7 @@ authorRoutes.get('/book/by/author/:authorId', (req, res) => {
 
 // --------------------------------------- Búsqueda de libros por nombre de autor ------------------------------------
 
-authorRoutes.get('/search/author', (req, res) => {
+authorRoutes.post('/search/author', (req, res) => {
     req.getConnection((err, connect) => {
         if (err) {
             return res.status(404).json({
@@ -60,7 +60,7 @@ authorRoutes.get('/search/author', (req, res) => {
             });
         } else {
             let val = "%" + req.body.author_name + "%"
-            connect.query('SELECT a.author_name, b.book_id, b.book_name, b.book_cover \
+            connect.query('SELECT a.author_name, a.author_description, a.author_picture, b.book_id, b.book_name, b.book_cover, b.book_description \
             FROM book_author ba \
             JOIN book b ON ba.fk_book_id = b.book_id \
             JOIN author a ON ba.fk_author_id = a.author_id \
