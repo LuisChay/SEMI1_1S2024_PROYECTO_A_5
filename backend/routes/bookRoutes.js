@@ -88,7 +88,12 @@ bookRoutes.post('/search/book', (req, res) => {
             });
         } else {
             let val = "%" + req.body.book_name+ "%"
-            connect.query('SELECT * FROM book WHERE book_name LIKE ?;', [val], (err, rows) => {
+            connect.query('SELECT b.book_id, b.book_name, b.book_description, b.book_cover, \
+            a.author_name, a.author_description, a.author_picture \
+            FROM book b \
+            LEFT JOIN book_author ba ON b.book_id = ba.fk_book_id \
+            LEFT JOIN author a ON a.author_id = ba.fk_author_id \
+                WHERE b.book_name LIKE ?', [val], (err, rows) => {
             console.log(err)
             if (err) {
                 return res.status(400).json({ error: err });

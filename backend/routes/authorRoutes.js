@@ -60,7 +60,7 @@ authorRoutes.post('/search/author', (req, res) => {
             });
         } else {
             let val = "%" + req.body.author_name + "%"
-            connect.query('SELECT a.author_name, b.book_id, b.book_name, b.book_cover \
+            connect.query('SELECT a.author_name, a.author_description, a.author_picture, b.book_id, b.book_name, b.book_cover, b.book_description \
             FROM book_author ba \
             JOIN book b ON ba.fk_book_id = b.book_id \
             JOIN author a ON ba.fk_author_id = a.author_id \
