@@ -79,3 +79,36 @@
   }
 ], 200
 ```
+
+## Búsqueda de libros por nombre
+
+### Método
+* GET
+
+### Ruta
+* localhost:9000/search/book
+
+### Body 
+```json
+{
+  "book_name":"El s"
+}
+```
+
+### Respuesta
+```json
+[
+  {
+    "book_id": 3,
+    "book_name": "El Señor de los Anillos",
+    "book_description": "Una épica trilogía de fantasía que narra la lucha del hobbit Frodo Bolsón por destruir el Anillo Único y salvar la Tierra Media",
+    "book_cover": "https://proyecto-g5-imagenes.s3.amazonaws.com/book_covers/3.jpeg"
+  },
+  {
+    "book_id": 7,
+    "book_name": "El Silmarillion",
+    "book_description": "Un compendio de historias y leyendas que forman la base del universo de la Tierra Media creado por J.R.R. Tolkien",
+    "book_cover": "https://proyecto-g5-imagenes.s3.amazonaws.com/book_covers/7.jpeg"
+  }
+], 200
+```
