@@ -79,7 +79,7 @@ bookRoutes.get('/book/genre/:bookId', (req, res) => {
 })
 
 // ------------------------- Mostrar los libros por búsqueda  ----------------------------------
-bookRoutes.get('/search/book', (req, res) => {
+bookRoutes.post('/search/book', (req, res) => {
     req.getConnection((err, connect) => {
         if (err) {
             return res.status(404).json({

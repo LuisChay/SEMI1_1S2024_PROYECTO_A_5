@@ -51,7 +51,7 @@ authorRoutes.get('/book/by/author/:authorId', (req, res) => {
 
 // --------------------------------------- Búsqueda de libros por nombre de autor ------------------------------------
 
-authorRoutes.get('/search/author', (req, res) => {
+authorRoutes.post('/search/author', (req, res) => {
     req.getConnection((err, connect) => {
         if (err) {
             return res.status(404).json({

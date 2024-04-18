@@ -69,3 +69,15 @@ export const setReview = async(rating, comment, book, user) =>{
     const { data } = await instance.post("/setRating",{rating_value:rating, rating_comment:comment, book_id:book, user_email:user})
     return data
 }
+
+//Búsqueda por título
+export const searchTitle = async(title) =>{
+    const { data } = await instance.post("/search/book",{book_name:title})
+    return {books:data}
+}
+
+//Búsqueda por autor
+export const searchAuthor = async(author) =>{
+    const { data } = await instance.post("/search/author",{author_name:author})
+    return {rbooks:data}
+}

@@ -155,6 +155,8 @@ function BookView() {
     <a class="navbar-brand" href="">
       <img src={logo} alt="Nicereads" width={250}/>
     </a>
+
+    
     <ul class="navbar-nav">
     <li class="nav-item dropdown">
 

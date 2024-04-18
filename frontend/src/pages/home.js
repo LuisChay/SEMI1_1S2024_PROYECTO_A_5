@@ -11,6 +11,7 @@ function Home() {
     const [books, setBooks] = useState([])
     const [genres, setGenres] = useState([])
     const [selectedGenre, SetSelectedGenre]= useState("")
+    const [search, setSearch] = useState("")
     const handleLogout = (e) => {
         sessionStorage.setItem("user","")
         navigate("/index")
@@ -19,6 +20,55 @@ function Home() {
     const handleSelectChange = (e) => {
       SetSelectedGenre(e.target.value);
     };
+
+    function filterUniqueById(array) {
+      const seen = new Set();
+      return array.filter(item => {
+          const id = item.book_id;
+          return seen.has(id) ? false : seen.add(id);
+      });
+    }
+
+    const handleSearch = (event) =>{
+      event.preventDefault()
+      
+      if (search.length > 0) {
+        var result = [];
+        var result2 = [];
+        service.searchTitle(search)
+            .then(({ books }) => {
+                result = books;
+                return service.searchAuthor(search); // Devolver la promesa para la cadena de promesas
+            })
+            .then(({ rbooks }) => {
+                result2 = rbooks;
+                let listaCombinada = result.concat(result2);
+                let listafiltrada = filterUniqueById(listaCombinada);
+                setBooks(listafiltrada);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Manejar el error si es necesario
+            });
+    
+       
+
+        
+        
+
+       
+
+        
+      }else{
+        //Obteniendo listado de libros disponible
+       service.getBooks()
+       .then(({books}) => {
+           setBooks(books)
+       });
+      }
+      };
+
+    
 
     const genreFilter = (e) => {
       if(selectedGenre==""){
@@ -60,6 +110,12 @@ function Home() {
     <a class="navbar-brand" href="">
       <img src={logo} alt="Nicereads" width={250}/>
     </a>
+  
+    <form class="search-bar" role="search" style={{display:"flex", alignItems:"center", width:"50%", marginLeft:"10px"}}>
+      <input class="form-control me-2" type="search" placeholder="Búsqueda por título o autor" aria-label="Search" onChange={(e)=>setSearch(e.target.value)}/>
+      <button class="btn btn-outline-success" type="submit" onClick={handleSearch}>Buscar</button>
+    </form>
+    
     <ul class="navbar-nav">
     <li class="nav-item dropdown">
 
