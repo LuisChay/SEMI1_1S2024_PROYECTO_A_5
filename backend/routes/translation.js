@@ -4,7 +4,7 @@ const routes = express.Router()
 const AWS = require('aws-sdk')
 const fs = require('fs')
 const { text } = require('body-parser')
-
+const translation = express.Router()
 require('dotenv').config();
 
 AWS.config.update({
@@ -42,7 +42,7 @@ const translate = new AWS.Translate(
 
 
 
-routes.post('/funcion/traduccion', (req, res) => {
+translation.post('/funcion/traduccion', (req, res) => {
     translateText(req.body.texto,req.body.idioma)
     .then(text => {
         return res.status(200).json({traduccion:text})
@@ -54,3 +54,4 @@ routes.post('/funcion/traduccion', (req, res) => {
       });
     
 })
+module.exports = translation
