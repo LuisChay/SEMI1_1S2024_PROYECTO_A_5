@@ -117,6 +117,9 @@ function Home() {
     </form>
     
     <ul class="navbar-nav">
+    <li class="nav-link">
+      <button className="btn btn-outline-info" onClick={()=>navigate("/text")}>Extraer texto</button>
+    </li>
     <li class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

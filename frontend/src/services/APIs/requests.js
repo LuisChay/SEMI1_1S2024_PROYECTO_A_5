@@ -81,3 +81,9 @@ export const searchAuthor = async(author) =>{
     const { data } = await instance.post("/search/author",{author_name:author})
     return {rbooks:data}
 }
+
+//Extraer texto
+export const extractText = async(image) =>{
+    const { data } = await instance.post("/funcion/texto",{foto:image})
+    return data
+}

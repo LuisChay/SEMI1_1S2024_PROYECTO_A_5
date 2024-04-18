@@ -50,7 +50,8 @@ async function extractText(base64Image) {
 
   
   routes.post('/funcion/texto', (req, res) => {
-    //console.log(req.body)
+    console.log("llegue")
+    console.log(req.body)
     extractText(req.body.foto)
   .then(text => {
     return res.status(200).json({texto:text})
@@ -62,3 +63,5 @@ async function extractText(base64Image) {
   });
     
 })
+
+module.exports = textDetection
