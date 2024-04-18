@@ -78,6 +78,26 @@ bookRoutes.get('/book/genre/:bookId', (req, res) => {
     })
 })
 
-
+// ------------------------- Mostrar los libros por búsqueda  ----------------------------------
+bookRoutes.get('/search/book', (req, res) => {
+    req.getConnection((err, connect) => {
+        if (err) {
+            return res.status(404).json({
+                "status": false,
+                error: "error de conexión con la base de datos"
+            });
+        } else {
+            let val = "%" + req.body.book_name+ "%"
+            connect.query('SELECT * FROM book WHERE book_name LIKE ?;', [val], (err, rows) => {
+            console.log(err)
+            if (err) {
+                return res.status(400).json({ error: err });
+            } else {
+                return res.status(200).json(rows);
+            }
+        })
+}
+    })
+})
 
 module.exports = bookRoutes
