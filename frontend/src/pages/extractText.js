@@ -19,10 +19,7 @@ function ExtractText() {
     const handleExtract = (e) => {
         const base64Data = image.split(',')[1];
 
-        service.extractText(base64Data)
-        .then(({texto}) => {
-           setText(texto)
-        });
+        z
 
     }
 
