@@ -1,6 +1,6 @@
 const { json } = require('express')
 const express = require('express')
-const routes = express.Router()
+const botroutes = express.Router()
 const AWS = require('aws-sdk')
 const fs = require('fs')
 const { text } = require('body-parser')
@@ -8,10 +8,11 @@ const { text } = require('body-parser')
 require('dotenv').config();
 
 AWS.config.update({
-    region: process.env.AWS_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-})
+  region: process.env.AWS_REGION,
+  accessKeyId: process.env.AWS_KEYID,
+  secretAccessKey: process.env.AWS_ACCESSKEY
+});
+
 
 //Instancia de lex
 const lexruntime = new AWS.LexRuntimeV2({
@@ -22,7 +23,7 @@ const lexruntime = new AWS.LexRuntimeV2({
 
 
 
-  routes.post('/funcion/chatbot',async (req, res) => {
+  botroutes.post('/funcion/chatbot',async (req, res) => {
     const params = {
       botAliasId: "TSTALIASID",
       botId: "UNKPVVTFPD",
@@ -40,4 +41,4 @@ const lexruntime = new AWS.LexRuntimeV2({
     
   })
   
-  module.exports = routes  
+  module.exports = botroutes  

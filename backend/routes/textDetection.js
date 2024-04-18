@@ -1,6 +1,6 @@
 const { json } = require('express')
 const express = require('express')
-const routes = express.Router()
+const textdetectionroutes = express.Router()
 const AWS = require('aws-sdk')
 const fs = require('fs')
 const { text } = require('body-parser')
@@ -8,10 +8,10 @@ const { text } = require('body-parser')
 require('dotenv').config();
 
 AWS.config.update({
-    region: process.env.AWS_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-})
+  region: process.env.AWS_REGION,
+  accessKeyId: process.env.AWS_KEYID,
+  secretAccessKey: process.env.AWS_ACCESSKEY
+});
 
 // Instancia de Rekognition
 const rekognition = new AWS.Rekognition(
@@ -49,7 +49,7 @@ async function extractText(base64Image) {
   }
 
   
-  routes.post('/funcion/texto', (req, res) => {
+  textdetectionroutes.post('/funcion/texto', (req, res) => {
     //console.log(req.body)
     extractText(req.body.foto)
   .then(text => {
@@ -62,3 +62,5 @@ async function extractText(base64Image) {
   });
     
 })
+
+module.exports = textdetectionroutes
