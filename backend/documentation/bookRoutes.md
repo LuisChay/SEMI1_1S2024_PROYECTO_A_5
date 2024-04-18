@@ -102,13 +102,19 @@
     "book_id": 3,
     "book_name": "El Señor de los Anillos",
     "book_description": "Una épica trilogía de fantasía que narra la lucha del hobbit Frodo Bolsón por destruir el Anillo Único y salvar la Tierra Media",
-    "book_cover": "https://proyecto-g5-imagenes.s3.amazonaws.com/book_covers/3.jpeg"
+    "book_cover": "https://proyecto-g5-imagenes.s3.amazonaws.com/book_covers/3.jpeg",
+    "author_name": "J.R.R. Tolkien",
+    "author_description": "Filólogo, escritor y profesor universitario británico. Autor de la trilogía El Señor de los Anillos",
+    "author_picture": "https://proyecto-g5-imagenes.s3.amazonaws.com/author_pictures/3.jpg"
   },
   {
     "book_id": 7,
     "book_name": "El Silmarillion",
     "book_description": "Un compendio de historias y leyendas que forman la base del universo de la Tierra Media creado por J.R.R. Tolkien",
-    "book_cover": "https://proyecto-g5-imagenes.s3.amazonaws.com/book_covers/7.jpeg"
+    "book_cover": "https://proyecto-g5-imagenes.s3.amazonaws.com/book_covers/7.jpeg",
+    "author_name": "J.R.R. Tolkien",
+    "author_description": "Filólogo, escritor y profesor universitario británico. Autor de la trilogía El Señor de los Anillos",
+    "author_picture": "https://proyecto-g5-imagenes.s3.amazonaws.com/author_pictures/3.jpg"
   }
 ], 200
 ```
