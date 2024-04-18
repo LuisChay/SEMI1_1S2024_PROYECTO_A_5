@@ -96,7 +96,7 @@ ratingRoutes.get('/ratings/:bookId', (req, res) => {
 
 
 // ----------------------------- OBTENER RESEÑAS HECHAS POR UN USUARIO POR SU CORREO  -------------------------------------------
-ratingRoutes.get('/user/ratings', (req, res) => {
+ratingRoutes.post('/user/ratings', (req, res) => {
     req.getConnection((err, connect) => {
         if (err) {
             return res.status(404).json({

@@ -46,3 +46,26 @@ export const getBooksByGenre = async(genre) =>{
     const { data } = await instance.get("/book/by/genre/"+genre)
     return {books:data}
 }
+
+//Obtener promedio de calificacaiones para un libro
+export const getBookRating = async(book) =>{
+    const { data } = await instance.get("/getRating/"+book)
+    return data[0]
+}
+
+//Obtener reseñas de un libro
+export const getBookOpinion = async(book) =>{
+    const { data } = await instance.get("ratings/"+book)
+    return {opinions:data}
+}
+
+//Obtener géneros que posee un libro
+export const getBookGenres = async(book) =>{
+    const { data } = await instance.get("/book/genre/"+book)
+    return {genres:data}
+}
+//Enviar reseñas de libros
+export const setReview = async(rating, comment, book, user) =>{
+    const { data } = await instance.post("/setRating",{rating_value:rating, rating_comment:comment, book_id:book, user_email:user})
+    return data
+}

@@ -6,6 +6,7 @@ import Index from './pages';
 import Registro from "./pages/registro";
 import Login from "./pages/login";
 import Home from "./pages/home";
+import BookView from "./pages/bookView";
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
         <Route path="/registro" element={<Registro></Registro>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="/book" element={<BookView></BookView>}></Route>
         <Route path="*" element={<Navigate to="/" replace={true}></Navigate>} exact={true}></Route>
       </Routes>
     </BrowserRouter>

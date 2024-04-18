@@ -110,7 +110,7 @@ function Home() {
     {books.length > 0 ? (
     books.map(book => (
       <div key={book.book_id} className="col-md-3 mb-4">
-        <div className="card h-100 d-flex flex-column justify-content-between">
+        <div className="card h-100 d-flex flex-column justify-content-between" onClick={()=>navigate("/book",{ state: book })} style={{cursor:"pointer"}}>
           <img src={book.book_cover} className="card-img-top" alt={book.book_name} />
           <div className="card-body">
             <h5 className="card-title">{book.book_name}</h5>
