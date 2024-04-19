@@ -1,17 +1,17 @@
 const { json } = require('express')
 const express = require('express')
-const routes = express.Router()
+const translationroutes = express.Router()
 const AWS = require('aws-sdk')
 const fs = require('fs')
 const { text } = require('body-parser')
-const translation = express.Router()
+
 require('dotenv').config();
 
 AWS.config.update({
-    region: process.env.AWS_REGION,
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-})
+  region: process.env.AWS_REGION,
+  accessKeyId: process.env.AWS_KEYID,
+  secretAccessKey: process.env.AWS_ACCESSKEY
+});
 
 //Instancia de translate
 const translate = new AWS.Translate(
@@ -42,7 +42,7 @@ const translate = new AWS.Translate(
 
 
 
-translation.post('/funcion/traduccion', (req, res) => {
+  translationroutes.post('/funcion/traduccion', (req, res) => {
     translateText(req.body.texto,req.body.idioma)
     .then(text => {
         return res.status(200).json({traduccion:text})
@@ -54,4 +54,5 @@ translation.post('/funcion/traduccion', (req, res) => {
       });
     
 })
-module.exports = translation
+
+module.exports = translationroutes

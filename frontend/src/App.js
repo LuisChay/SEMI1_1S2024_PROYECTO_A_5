@@ -8,7 +8,6 @@ import Login from "./pages/login";
 import Home from "./pages/home";
 import BookView from "./pages/bookView";
 import ExtractText from "./pages/extractText";
-import Translate from "./pages/translate";
 function App() {
   return (
     <>
@@ -20,7 +19,6 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/book" element={<BookView></BookView>}></Route>
         <Route path="/text" element={<ExtractText></ExtractText>}></Route>
-        <Route path="/translate" element={<Translate></Translate>}></Route>
         <Route path="*" element={<Navigate to="/" replace={true}></Navigate>} exact={true}></Route>
       </Routes>
     </BrowserRouter>
