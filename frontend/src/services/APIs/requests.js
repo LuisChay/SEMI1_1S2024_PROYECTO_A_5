@@ -88,8 +88,13 @@ export const extractText = async(image) =>{
     return data
 }
 
-//Tradducir texto
+//Traducir texto
 export const translate = async(text, lang) =>{
     const { data } = await instance.post("/funcion/traduccion",{texto:text,idioma:lang})
+    return data
+}
+//Leer texto en voz alta
+export const speech = async(text) =>{
+    const { data } = await instance.post("/funcion/polly",{message:text})
     return data
 }
