@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import logo from '../assets/nicereads2.png'
 import { useState, useEffect } from "react";
 import service from "../services/service";
-function ExtractText() {
+function Translate() {
    
 
     const navigate = useNavigate()
@@ -10,6 +10,8 @@ function ExtractText() {
     const [nameLogged, setNameLogged] = useState("")
     const [image, setImage] = useState("")
     const [text, setText] = useState("")
+    const [lang, setLang] = useState("")
+    const [translation, setTranslation] = useState("")
    
     const handleLogout = (e) => {
         sessionStorage.setItem("user","")
@@ -17,14 +19,27 @@ function ExtractText() {
     }
 
     const handleExtract = (e) => {
+        e.preventDefault()
         const base64Data = image.split(',')[1];
 
         service.extractText(base64Data)
         .then(({texto}) => {
-           setText(texto)
+            setText(texto)
         });
 
     }
+
+    const handleTranslate = (e) => {
+       e.preventDefault()
+  
+        service.translate(text.toString(), lang)
+        .then(({traduccion}) => {
+            setTranslation(traduccion)
+        });
+
+    }
+
+
 
    
     const handleImageChange = (event) => {
@@ -38,6 +53,10 @@ function ExtractText() {
         if (selectedImage) {
           reader.readAsDataURL(selectedImage);
         }
+      };
+
+      const handleSelectChange = (e) => {
+        setLang(e.target.value);
       };
 
    
@@ -54,7 +73,7 @@ function ExtractText() {
       }, []); // El segundo argumento es un array vacío para indicar que esta acción solo se ejecuta una vez
   return (
     <>
-   <nav class="navbar navbar-expand-lg bg-body-tertiary border">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border">
   <div class="container">
     <a class="navbar-brand" href="" onClick={()=> navigate("/home")}>
       <img src={logo} alt="Nicereads" width={250}/>
@@ -62,10 +81,10 @@ function ExtractText() {
 
     <ul class="navbar-nav text-start">
       <li class="nav-item">
-        <a class="nav-link active" href="" onClick={()=>navigate("/text")}>Extraer texto</a>
+        <a class="nav-link" href="" onClick={()=>navigate("/text")}>Extraer texto</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="" onClick={()=>navigate("/translate")}>Traducir texto</a>
+        <a class="nav-link active" href="" onClick={()=>navigate("/translate")}>Traducir texto</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="" onClick={()=>navigate("/speech")}>Leer en voz alta</a>
@@ -124,12 +143,23 @@ function ExtractText() {
   <div className="col-md-8">
 
   <form >
-        <div className="form-group">
+        <div className="form-group" >
           <label>Texto extraido:</label>
-          <textarea className="form-control" rows="5" value={text} onChange={(e) => setText(e.target.value)}></textarea>
+          <textarea className="form-control" rows="5" value={text} placeholder="Escribe tu texto aquí" onChange={(e) => setText(e.target.value)}></textarea>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+        <select onChange={handleSelectChange} className="form-control" style={{width:"50%"}}>
+        <option value={"es"}>Español</option>
+        <option value={"en"}>Inglés</option>
+        <option value={"fr"}>Francés</option>
+        </select>
+        <button type="submit" className="btn btn-success" onClick={handleTranslate}>Traducir</button>
         </div>
-        <button type="submit" className="btn btn-success">Enviar reseña</button>
+        </div>
+       
       </form>
+      <br></br> <br></br>
+      <label>Texto traducido:</label>
+      <textarea className="form-control" rows="5" value={translation} readOnly={true} onChange={(e) => setText(e.target.value)}></textarea>
       </div>
         </div>
         </div>
@@ -145,4 +175,4 @@ function ExtractText() {
   );
 }
 
-export default ExtractText;
+export default Translate;
