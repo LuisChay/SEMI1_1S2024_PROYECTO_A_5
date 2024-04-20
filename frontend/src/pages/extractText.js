@@ -73,6 +73,9 @@ function ExtractText() {
       <li class="nav-item">
         <a class="nav-link" href="" onClick={()=>navigate("/entity")}>Entidades de un texto</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" onClick={()=>navigate("/chatbot")}>Chatbot</a>
+      </li>
     </ul>
 
     <ul class="navbar-nav">
@@ -126,9 +129,9 @@ function ExtractText() {
   <form >
         <div className="form-group">
           <label>Texto extraido:</label>
-          <textarea className="form-control" rows="5" value={text} onChange={(e) => setText(e.target.value)}></textarea>
+          <textarea className="form-control" rows="5" value={text} readOnly onChange={(e) => setText(e.target.value)}></textarea>
         </div>
-        <button type="submit" className="btn btn-success">Enviar reseña</button>
+        
       </form>
       </div>
         </div>

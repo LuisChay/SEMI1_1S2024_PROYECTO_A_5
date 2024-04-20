@@ -10,6 +10,8 @@ import BookView from "./pages/bookView";
 import ExtractText from "./pages/extractText";
 import Translate from "./pages/translate";
 import Speech from "./pages/speech";
+import Entities from "./pages/entities";
+import Chatbot from "./pages/chatbot";
 function App() {
   return (
     <>
@@ -23,6 +25,8 @@ function App() {
         <Route path="/text" element={<ExtractText></ExtractText>}></Route>
         <Route path="/translate" element={<Translate></Translate>}></Route>
         <Route path="/speech" element={<Speech></Speech>}></Route>
+        <Route path="/entity" element={<Entities></Entities>}></Route>
+        <Route path="/chatbot" element={<Chatbot></Chatbot>}></Route>
         <Route path="*" element={<Navigate to="/" replace={true}></Navigate>} exact={true}></Route>
       </Routes>
     </BrowserRouter>

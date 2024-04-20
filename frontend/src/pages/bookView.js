@@ -156,11 +156,24 @@ function BookView() {
       <img src={logo} alt="Nicereads" width={250}/>
     </a>
 
-    
+    <ul class="navbar-nav text-start">
+          <li class="nav-item">
+            <a class="nav-link" href="" onClick={()=>navigate("/text")}>Extraer texto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" onClick={()=>navigate("/translate")}>Traducir texto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" onClick={()=>navigate("/speech")}>Leer en voz alta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" onClick={()=>navigate("/entity")}>Entidades de un texto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="" onClick={()=>navigate("/chatbot")}>Chatbot</a>
+          </li>
+        </ul>
     <ul class="navbar-nav">
-    <li class="nav-link">
-      <button className="btn btn-outline-info" onClick={()=>navigate("/text")}>Extraer texto</button>
-    </li>
     <li class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -170,6 +183,7 @@ function BookView() {
             </svg> 
             {nameLogged}
           </a>
+         
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" >{userLogged}</a></li>
             <li>

@@ -124,6 +124,9 @@ function Home() {
       <li class="nav-item">
         <a class="nav-link" href="" onClick={()=>navigate("/entity")}>Entidades de un texto</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="" onClick={()=>navigate("/chatbot")}>Chatbot</a>
+      </li>
     </ul>
 
     <ul class="navbar-nav">

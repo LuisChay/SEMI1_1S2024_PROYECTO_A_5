@@ -82,6 +82,7 @@ export const searchAuthor = async(author) =>{
     return {rbooks:data}
 }
 
+
 //Extraer texto
 export const extractText = async(image) =>{
     const { data } = await instance.post("/funcion/texto",{foto:image})
@@ -97,4 +98,15 @@ export const translate = async(text, lang) =>{
 export const speech = async(text) =>{
     const { data } = await instance.post("/funcion/polly",{message:text})
     return data
+}
+
+//Encontrar entidades en un texto
+export const getEntities = async(text) =>{
+    const { data } = await instance.post("/funcion/comprehend",{message:text})
+    return {entities:data}
+}
+//Interacción con el chatbot /funcion/chatbot
+export const chatbot = async(text) =>{
+    const { data } = await instance.post("/funcion/chatbot",{message:text})
+    return {mensajes:data.messages}
 }
