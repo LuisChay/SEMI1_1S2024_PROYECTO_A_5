@@ -12,6 +12,7 @@ import Translate from "./pages/translate";
 import Speech from "./pages/speech";
 import Entities from "./pages/entities";
 import Chatbot from "./pages/chatbot";
+import VerPerfil from "./pages/verPerfil";
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/speech" element={<Speech></Speech>}></Route>
         <Route path="/entity" element={<Entities></Entities>}></Route>
         <Route path="/chatbot" element={<Chatbot></Chatbot>}></Route>
+        <Route path="/profile" element={<VerPerfil></VerPerfil>}></Route>
         <Route path="*" element={<Navigate to="/" replace={true}></Navigate>} exact={true}></Route>
       </Routes>
     </BrowserRouter>

@@ -110,3 +110,5 @@ export const chatbot = async(text) =>{
     const { data } = await instance.post("/funcion/chatbot",{message:text})
     return {mensajes:data.messages}
 }
+
+//Obtner las reseñas de un usuario /user/ratings

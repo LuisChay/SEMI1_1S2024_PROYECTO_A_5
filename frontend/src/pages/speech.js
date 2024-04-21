@@ -105,7 +105,7 @@ function Speech() {
           {nameLogged}
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" >{userLogged}</a></li>
+          <li><a class="dropdown-item" href="" onClick={()=> navigate("/profile")}>{userLogged}</a></li>
           <li>
             <a class="dropdown-item" href="" onClick={handleLogout}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">

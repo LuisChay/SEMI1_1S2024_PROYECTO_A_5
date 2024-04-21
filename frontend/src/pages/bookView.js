@@ -185,7 +185,7 @@ function BookView() {
           </a>
          
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" >{userLogged}</a></li>
+            <li><a class="dropdown-item" href="" onClick={()=> navigate("/profile")}>{userLogged}</a></li>
             <li>
             
               <a class="dropdown-item" href="" onClick={handleLogout}>
