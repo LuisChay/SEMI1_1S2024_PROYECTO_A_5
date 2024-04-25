@@ -3,6 +3,7 @@ import logo from '../assets/nicereads2.png'
 import { useState, useEffect } from "react";
 import service from "../services/service";
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom';
 
 function BookView() {
     const location = useLocation();
@@ -152,25 +153,25 @@ function BookView() {
     <>
     <nav class="navbar navbar-expand-lg bg-body-tertiary border">
   <div class="container">
-    <a class="navbar-brand" href="">
+  <Link class="navbar-brand" to="/home">
       <img src={logo} alt="Nicereads" width={250}/>
-    </a>
+    </Link>
 
     <ul class="navbar-nav text-start">
           <li class="nav-item">
-            <a class="nav-link" href="" onClick={()=>navigate("/text")}>Extraer texto</a>
+          <Link class="nav-link" to="/text">Extraer texto</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" onClick={()=>navigate("/translate")}>Traducir texto</a>
+          <Link class="nav-link" to="/translate">Traducir texto</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" onClick={()=>navigate("/speech")}>Leer en voz alta</a>
+          <Link class="nav-link" to="/speech">Leer en voz alta</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" onClick={()=>navigate("/entity")}>Entidades de un texto</a>
+          <Link class="nav-link" to="/entity">Entidades de un texto</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="" onClick={()=>navigate("/chatbot")}>Chatbot</a>
+          <Link class="nav-link" to="/chatbot">Chatbot</Link>
           </li>
         </ul>
     <ul class="navbar-nav">
@@ -185,7 +186,7 @@ function BookView() {
           </a>
          
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="" onClick={()=> navigate("/profile")}>{userLogged}</a></li>
+          <Link class="dropdown-item" to="/profile">{userLogged}</Link>
             <li>
             
               <a class="dropdown-item" href="" onClick={handleLogout}>

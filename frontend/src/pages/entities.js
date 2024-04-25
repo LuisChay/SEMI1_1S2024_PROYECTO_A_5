@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import logo from '../assets/nicereads2.png'
 import { useState, useEffect } from "react";
 import service from "../services/service";
+import { Link } from 'react-router-dom';
 function Entities() {
    
 
@@ -66,26 +67,26 @@ function Entities() {
     <>
    <nav class="navbar navbar-expand-lg bg-body-tertiary border">
   <div class="container">
-    <a class="navbar-brand" href="" onClick={()=> navigate("/home")}>
+     <Link class="navbar-brand" to="/home">
       <img src={logo} alt="Nicereads" width={250}/>
-    </a>
+    </Link>
 
     <ul class="navbar-nav text-start">
-      <li class="nav-item">
-        <a class="nav-link" href="" onClick={()=>navigate("/text")}>Extraer texto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="" onClick={()=>navigate("/translate")}>Traducir texto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="" onClick={()=>navigate("/speech")}>Leer en voz alta</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="" onClick={()=>navigate("/entity")}>Entidades de un texto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="" onClick={()=>navigate("/chatbot")}>Chatbot</a>
-      </li>
+    <li class="nav-item">
+          <Link class="nav-link" to="/text">Extraer texto</Link>
+          </li>
+          <li class="nav-item">
+          <Link class="nav-link" to="/translate">Traducir texto</Link>
+          </li>
+          <li class="nav-item">
+          <Link class="nav-link" to="/speech">Leer en voz alta</Link>
+          </li>
+          <li class="nav-item">
+          <Link class="nav-link active" to="/entity">Entidades de un texto</Link>
+          </li>
+          <li class="nav-item">
+          <Link class="nav-link" to="/chatbot">Chatbot</Link>
+          </li>
     </ul>
 
     <ul class="navbar-nav">
@@ -98,7 +99,7 @@ function Entities() {
           {nameLogged}
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="" onClick={()=> navigate("/profile")}>{userLogged}</a></li>
+        <Link class="dropdown-item" to="/profile">{userLogged}</Link>
           <li>
             <a class="dropdown-item" href="" onClick={handleLogout}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">

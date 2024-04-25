@@ -2,7 +2,17 @@ import axios from 'axios'
 
 const instance = axios.create(
     {
-        baseURL: 'http://localhost:9000', //la ip podría cambiar http://44.202.167.5
+        baseURL: 'http://balanceador-proyecto-semi-1907208743.us-east-1.elb.amazonaws.com:9000', //la ip podría cambiar http://44.202.167.5
+        timeout: 100000,
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+)
+
+const api_gateway = axios.create(
+    {
+        baseURL: 'https://ut89tg9go2.execute-api.us-east-1.amazonaws.com/develop', //la ip podría cambiar http://44.202.167.5
         timeout: 100000,
         headers:{
             'Content-Type':'application/json'
@@ -85,24 +95,24 @@ export const searchAuthor = async(author) =>{
 
 //Extraer texto
 export const extractText = async(image) =>{
-    const { data } = await instance.post("/funcion/texto",{foto:image})
+    const { data } = await api_gateway.post("/funcion/texto",{foto:image})
     return data
 }
 
 //Traducir texto
 export const translate = async(text, lang) =>{
-    const { data } = await instance.post("/funcion/traduccion",{texto:text,idioma:lang})
+    const { data } = await api_gateway.post("/funcion/traduccion",{texto:text,idioma:lang})
     return data
 }
 //Leer texto en voz alta
 export const speech = async(text) =>{
-    const { data } = await instance.post("/funcion/polly",{message:text})
+    const { data } = await api_gateway.post("/funcion/polly",{message:text})
     return data
 }
 
 //Encontrar entidades en un texto
 export const getEntities = async(text) =>{
-    const { data } = await instance.post("/funcion/comprehend",{message:text})
+    const { data } = await api_gateway.post("/funcion/comprehend",{message:text})
     return {entities:data}
 }
 //Interacción con el chatbot /funcion/chatbot
